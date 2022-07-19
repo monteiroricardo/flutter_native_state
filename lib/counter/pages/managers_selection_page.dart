@@ -58,7 +58,11 @@ class _ManagersSelectionPageState extends State<ManagersSelectionPage> {
                 ManagerSection(
                   managerLabel: 'BLOC',
                   backgroundColor: Colors.purple,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pushNamed(
+                      AppRoutes.blocPatternPage,
+                    );
+                  },
                 ),
               ],
             ),

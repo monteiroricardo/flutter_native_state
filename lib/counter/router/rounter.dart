@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:native_states/counter/managers/bloc_pattern/bloc_pattern_counter_page.dart';
 import 'package:native_states/counter/router/routes.dart';
 
 import '../managers/change_notifier/change_notifier_counter_page.dart';
@@ -21,6 +22,9 @@ class Rounter {
         break;
       case AppRoutes.changeNotifierPage:
         page = const ChangeNotifierCounterPage();
+        break;
+      case AppRoutes.blocPatternPage:
+        page = const BlocPatternCounterPage();
         break;
       default:
         page = const ManagersSelectionPage();
