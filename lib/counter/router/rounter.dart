@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:native_states/counter/presentation/pages/home_page.dart';
-import 'package:native_states/counter/presentation/pages/set_state_counter_page.dart';
-import 'package:native_states/counter/presentation/pages/value_notifier_counter_page.dart';
-import 'package:native_states/counter/presentation/router/routes.dart';
+import 'package:native_states/counter/router/routes.dart';
+
+import '../managers/change_notifier/change_notifier_counter_page.dart';
+import '../managers/set_state/set_state_counter_page.dart';
+import '../managers/value_notifier/value_notifier_counter_page.dart';
+import '../pages/managers_selection_page.dart';
 
 class Rounter {
   static Route routeManager(RouteSettings settings) {
     late Widget page;
     switch (settings.name) {
       case AppRoutes.home:
-        page = const HomePage();
+        page = const ManagersSelectionPage();
         break;
       case AppRoutes.setStatePage:
         page = const SetStateCounterPage();
@@ -17,8 +19,11 @@ class Rounter {
       case AppRoutes.valueNotifierPage:
         page = const ValueNotifierCounterPage();
         break;
+      case AppRoutes.changeNotifierPage:
+        page = const ChangeNotifierCounterPage();
+        break;
       default:
-        page = const HomePage();
+        page = const ManagersSelectionPage();
     }
 
     return PageRouteBuilder(

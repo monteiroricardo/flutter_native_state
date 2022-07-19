@@ -4,13 +4,13 @@ class CounterBasePage extends StatefulWidget {
   const CounterBasePage({
     Key? key,
     required this.counterValue,
-    required this.onAdd,
-    required this.onRemove,
+    required this.increment,
+    required this.decrement,
   }) : super(key: key);
 
   final int counterValue;
-  final VoidCallback onAdd;
-  final VoidCallback onRemove;
+  final VoidCallback increment;
+  final VoidCallback decrement;
 
   @override
   State<CounterBasePage> createState() => _CounterBasePageState();
@@ -32,7 +32,7 @@ class _CounterBasePageState extends State<CounterBasePage> {
           Row(
             children: [
               ElevatedButton(
-                onPressed: widget.onAdd,
+                onPressed: widget.increment,
                 child: const Text(
                   'ADICIONAR',
                   style: TextStyle(
@@ -42,7 +42,7 @@ class _CounterBasePageState extends State<CounterBasePage> {
               ),
               const Spacer(),
               ElevatedButton(
-                onPressed: widget.onRemove,
+                onPressed: widget.decrement,
                 child: const Text(
                   'REMOVER',
                   style: TextStyle(

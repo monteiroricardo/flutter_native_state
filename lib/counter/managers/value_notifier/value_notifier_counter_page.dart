@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'counter_base_page.dart';
+import '../../pages/counter_base_page.dart';
 
 class ValueNotifierCounterPage extends StatefulWidget {
   const ValueNotifierCounterPage({Key? key}) : super(key: key);
@@ -11,16 +11,27 @@ class ValueNotifierCounterPage extends StatefulWidget {
 }
 
 class _ValueNotifierCounterPageState extends State<ValueNotifierCounterPage> {
+  final _counter = ValueNotifier(0);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('VALUE NOTIFIER COUNTER'),
       ),
-      body: CounterBasePage(
-        counterValue: 10,
-        onAdd: () {},
-        onRemove: () {},
+      body: ValueListenableBuilder<int>(
+        valueListenable: _counter,
+        builder: (ctx, value, _) {
+          return CounterBasePage(
+            counterValue: value,
+            increment: () {
+              _counter.value++;
+            },
+            decrement: () {
+              _counter.value--;
+            },
+          );
+        },
       ),
     );
   }

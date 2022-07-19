@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:native_states/counter/presentation/router/rounter.dart';
+import 'counter/router/rounter.dart';
 
 void initApplication() {
   runApp(

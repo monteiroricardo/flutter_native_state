@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:native_states/counter/presentation/pages/counter_base_page.dart';
+
+import '../../pages/counter_base_page.dart';
 
 class SetStateCounterPage extends StatefulWidget {
   const SetStateCounterPage({Key? key}) : super(key: key);
@@ -18,12 +19,12 @@ class _SetStateCounterPageState extends State<SetStateCounterPage> {
       ),
       body: CounterBasePage(
         counterValue: counter,
-        onAdd: () {
+        increment: () {
           setState(() {
             counter++;
           });
         },
-        onRemove: () {
+        decrement: () {
           setState(() {
             counter--;
           });
